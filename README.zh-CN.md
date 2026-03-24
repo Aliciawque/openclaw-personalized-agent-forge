@@ -1,6 +1,6 @@
 # OpenClaw Skills Bundle：个性化 Agent Forge 技能包
 
-[English](./README.md) | [简体中文](./README.zh-CN.md)
+**Language / 语言：** [English](./README.md) | [简体中文](./README.zh-CN.md)
 
 
 这是一个 3 合 1 的技能包，用于**快速创建个性化 OpenClaw Agent**，来源包括：
