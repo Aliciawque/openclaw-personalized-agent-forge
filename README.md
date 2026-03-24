@@ -1,0 +1,151 @@
+# OpenClaw Skills Bundle: Personalized Agent Forge
+
+A curated 3-skill bundle for quickly creating personalized OpenClaw agents from:
+
+1. **Public creators / digital IPs**
+2. **Real-world professions**
+3. **Fictional characters**
+
+This repository is designed for users who want to turn a voice, role, or persona into a deployable OpenClaw agent package with strong identity, memory, and behavioral grounding.
+
+---
+
+## Included Skills
+
+### 1. `digital-ip-agent`
+Turn a public creator, blogger, podcaster, YouTuber, or X/Twitter personality into a deployable OpenClaw persona package.
+
+**Best for:**
+- creator cloning
+- KOL / influencer agent generation
+- public-persona style extraction
+- building creator-inspired assistants
+
+### 2. `professional-agent-forge`
+Generate a professional OpenClaw agent for a real job role.
+
+**Best for:**
+- product manager agents
+- engineer agents
+- lawyer agents
+- data analyst / designer / marketer agents
+- role-based workflow assistants
+
+### 3. `fictional-companion-forge`
+Turn a fictional character into an emotionally believable OpenClaw companion agent.
+
+**Best for:**
+- character-faithful companion agents
+- game / movie / anime / novel character reconstruction
+- immersive personality simulation
+- preserving strong canon voice and boundaries
+
+---
+
+## Repository Structure
+
+```text
+openclaw-skills-bundle-md/
+├── 01-digital-ip-agent/
+│   ├── SKILL.md
+│   └── references/
+├── 02-professional-agent-forge/
+│   ├── SKILL.md
+│   └── references/
+├── 03-fictional-companion-forge/
+│   ├── SKILL.md
+│   └── references/
+├── README.md
+└── README.zh-CN.md
+```
+
+---
+
+## Quick Examples
+
+### `digital-ip-agent`
+**Prompt example:**
+> Turn this YouTube creator into an OpenClaw agent and generate the core persona files.
+
+### `professional-agent-forge`
+**Prompt example:**
+> Create a product manager OpenClaw agent focused on B2B SaaS prioritization and stakeholder alignment.
+
+### `fictional-companion-forge`
+**Prompt example:**
+> Turn Ghost from Call of Duty into a character-faithful OpenClaw companion agent.
+
+---
+
+## Design Philosophy
+
+These skills are optimized for **high-quality identity construction**, not just template filling.
+
+Each skill is meant to help an OpenClaw agent produce packages centered on the files that matter most for persona stability:
+
+- `soul.md`
+- `identity.md`
+- `memory.md`
+- `agents.md`
+- `tools.md` (when role/tooling depth matters)
+
+The goal is not to create a generic chatbot with a themed intro. The goal is to create an agent with:
+
+- a believable inner logic
+- a stable interaction style
+- role-appropriate memory and boundaries
+- reusable deployment-ready core files
+
+---
+
+## What Makes This Bundle Useful
+
+### File-first persona construction
+The bundle focuses on durable OpenClaw core files rather than vague prompts.
+
+### Role- and source-aware workflows
+Each skill adapts its workflow based on the type of source material:
+- public creator content
+- profession / job logic
+- fictional canon and characterization
+
+### Strong anti-generic bias
+The skills are written to avoid bland assistant outputs and preserve sharp, recognizable traits.
+
+### Reference-backed generation
+Each skill includes reference material that can be loaded when deeper specificity is needed.
+
+---
+
+## Suggested Publishing Positioning
+
+If you publish this on **GitHub** and **ClawHub**, position it as:
+
+> A compact skill bundle for building personalized OpenClaw agents from creators, professions, and fictional characters.
+
+Good keywords:
+- openclaw
+- agent persona
+- character ai
+- creator clone
+- digital twin
+- profession agent
+- fictional companion
+- soul identity memory agent
+
+---
+
+## Publication Notes
+
+Before publishing, consider:
+- adding examples or demo outputs in the GitHub repo root if you want stronger discoverability
+- packaging each skill individually if ClawHub expects one skill per upload flow
+- keeping repository-level docs public-facing, while skill internals remain agent-facing
+
+---
+
+## License
+
+Add the license you want before publishing.
+
+If you want broad reuse, MIT is the simplest default. If you want attribution and share-alike pressure, consider CC BY-SA for documentation-style repos.
