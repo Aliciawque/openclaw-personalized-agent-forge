@@ -117,34 +117,44 @@ openclaw-skills-bundle-md/
 
 ---
 
-## 建议的公开定位
+## 项目定位
 
-如果你要把这个仓库发布到 **GitHub** 和 **ClawHub**，推荐定位为：
+**OpenClaw Personalized Agent Forge** 是一个紧凑的技能包，用于从三类来源快速构建可部署的个性化 Agent：
 
-> 一个用于从创作者、职业、虚构角色快速构建个性化 OpenClaw Agent 的紧凑技能包。
+- 公开创作者与数字 IP
+- 真实职业岗位
+- 虚构角色
 
-推荐关键词：
+它适合那些希望获得**比单条 prompt 更稳定、更耐用的人格构建能力**的用户。重点不是一次性角色扮演，而是生成可持续复用的 OpenClaw 核心文件。
+
+**推荐关键词：**
 - openclaw
-- agent persona
+- ai agents
+- agent skills
+- persona
 - digital twin
 - creator clone
 - profession agent
 - fictional companion
-- soul identity memory agent
 
 ---
 
-## 发布前建议
+## 公开发布说明
 
-在正式发布前，你可以进一步考虑：
-- 在 GitHub 根目录补充 demo 输出示例，增强可发现性
-- 如果 ClawHub 更适合逐个 skill 发布，可以把 3 个 skill 分开打包上传
-- 保持根目录 README 面向人类读者，而 skill 内部继续面向 agent 使用
+这个仓库适合采用双层发布方式：
+
+- **GitHub**：作为完整仓库、文档首页和版本历史的公开主页
+- **ClawHub**：把每个 skill 分别作为独立可安装条目发布
+
+推荐流程：
+1. 先公开 GitHub 仓库
+2. 再把 3 个 skill 分别发布到 ClawHub
+3. 仓库根目录 README 面向人类读者，`SKILL.md` 继续面向 agent 使用
 
 ---
 
 ## License
 
-发布前请补一个许可证。
+**推荐许可证：MIT。**
 
-如果想最大化传播，MIT 最简单；如果你更希望文档类内容保留署名和演化约束，可以考虑 CC BY-SA。
+如果目标是低门槛传播、方便复用、便于社区采用，MIT 是这套仓库最合适的默认选择。

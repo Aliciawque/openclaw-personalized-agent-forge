@@ -117,35 +117,44 @@ Each skill includes reference material that can be loaded when deeper specificit
 
 ---
 
-## Suggested Publishing Positioning
+## Positioning
 
-If you publish this on **GitHub** and **ClawHub**, position it as:
+**OpenClaw Personalized Agent Forge** is a compact skill bundle for building deployable personalized agents from three source types:
 
-> A compact skill bundle for building personalized OpenClaw agents from creators, professions, and fictional characters.
+- public creators and digital IPs
+- real-world professions
+- fictional characters
 
-Good keywords:
+It is designed for users who want stronger persona construction than a single prompt can provide, with outputs centered on durable OpenClaw core files instead of one-off roleplay wrappers.
+
+**Suggested keywords:**
 - openclaw
-- agent persona
-- character ai
-- creator clone
+- ai agents
+- agent skills
+- persona
 - digital twin
+- creator clone
 - profession agent
 - fictional companion
-- soul identity memory agent
 
 ---
 
-## Publication Notes
+## Notes for Public Release
 
-Before publishing, consider:
-- adding examples or demo outputs in the GitHub repo root if you want stronger discoverability
-- packaging each skill individually if ClawHub expects one skill per upload flow
-- keeping repository-level docs public-facing, while skill internals remain agent-facing
+This repository is intended to work in two layers:
+
+- **GitHub** as the public home for the full bundle, documentation, and version history
+- **ClawHub** as the distribution channel for each skill as an individual installable listing
+
+Recommended publishing flow:
+1. Publish the repository on GitHub
+2. Publish each skill to ClawHub separately
+3. Use the repository README as the public overview, and keep `SKILL.md` files optimized for agent use
 
 ---
 
 ## License
 
-Add the license you want before publishing.
+**Recommended license: MIT.**
 
-If you want broad reuse, MIT is the simplest default. If you want attribution and share-alike pressure, consider CC BY-SA for documentation-style repos.
+MIT is the best default for this repository if the goal is broad reuse, low friction, and easy community adoption.
