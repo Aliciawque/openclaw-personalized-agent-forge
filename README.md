@@ -1,5 +1,8 @@
 # OpenClaw Skills Bundle: Personalized Agent Forge
 
+[English](./README.md) | [简体中文](./README.zh-CN.md)
+
+
 A curated 3-skill bundle for quickly creating personalized OpenClaw agents from:
 
 1. **Public creators / digital IPs**
