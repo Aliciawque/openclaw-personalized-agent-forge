@@ -1,24 +1,43 @@
 ---
 name: digital-ip-agent
-description: Turn a public creator, blogger, podcaster, YouTuber, or X/Twitter personality into a deployable OpenClaw agent. Use when the user provides a YouTube URL, X handle, creator name, podcast host, or asks for things like "turn this creator into an agent", "clone this creator's style", "digitalize this KOL", or "generate agent files from this public persona". Produce an OpenClaw persona package centered on `soul.md`, `identity.md`, `memory.md`, and `agents.md`, plus a recommended supporting-skill stack.
+version: 2.0.0
+description: Turn a public creator, blogger, podcaster, YouTuber, or X/Twitter personality into a deployable OpenClaw agent. Use when the user provides a YouTube URL, X handle, creator name, podcast host, or asks for things like "turn this creator into an agent", "clone this creator's style", "digitalize this KOL", or "generate agent files from this public persona". Produce an OpenClaw persona package centered on `soul.md`, `identity.md`, `memory.md`, `agents.md`, and `tools.md`, plus a recommended supporting-skill stack.
+tags: [creator, digital-twin, KOL, persona, clone]
+outputs: [soul.md, identity.md, memory.md, agents.md, tools.md, skills-recommendation.md]
 ---
 
 # Digital IP Agent
 
 Analyze a public creator's voice, worldview, and audience relationship, then turn those traits into a deployable OpenClaw agent package.
 
+## Quick Start
+
+```bash
+# Scaffold a new digital IP agent package
+./scripts/forge.sh "creator-name" --type digital
+
+# Then use this skill to auto-fill the templates
+# Provide a YouTube URL, X handle, or creator name
+```
+
 ## Workflow
 
 ```text
 Input: YouTube URL / X handle / creator name / podcast host / public persona
   ↓
-Collect representative public material
+Classify the input source
+  ↓
+Collect representative public material (minimum 5 data points)
   ↓
 Extract voice, values, thinking patterns, and audience relationship
   ↓
-Generate core OpenClaw persona files
+Normalize the persona summary
+  ↓
+Generate core OpenClaw persona files (soul, identity, memory, agents, tools)
   ↓
 Recommend a supporting skill stack
+  ↓
+Run quality checks
   ↓
 Return a publication-ready agent configuration package
 ```
@@ -136,6 +155,17 @@ Match the stack to creator type:
 - Lifestyle or health creator
 - General cross-platform creator
 
+## Step 6: Generate tools.md
+
+Define the creator's practical toolchain and digital workflow.
+
+Must include:
+- Primary platforms and content tools
+- AI-augmented tools the creator would benefit from
+- OpenClaw skill mapping (from `references/skills-catalog.md`)
+- Recommended MCP integrations
+- Tool selection logic by content type
+
 ## Output format
 
 Return the package in this structure:
@@ -146,17 +176,34 @@ Return the package in this structure:
 ├── identity.md
 ├── memory.md
 ├── agents.md
+├── tools.md
 └── skills-recommendation.md
 ```
 
+Use the templates in `templates/` as the base structure for each file. Fill every section — leave no placeholders.
+
 ## Quality bar
 
-Before finalizing, check:
-- `soul.md` feels specific and not generic
-- `identity.md` includes concrete voice habits
-- `memory.md` contains real examples, frameworks, or recurring references
-- `agents.md` contains executable behavior rules, not vague principles
-- A real fan of the creator would recognize the tone and priorities
+Before finalizing, run these checks:
+
+### Content checks
+- [ ] `soul.md` feels specific and not generic — could only describe this creator
+- [ ] `identity.md` includes concrete voice habits with real examples
+- [ ] `memory.md` contains real frameworks, references, or recurring examples
+- [ ] `agents.md` contains executable behavior rules with sample dialogues
+- [ ] `tools.md` maps to real tools the creator actually uses or would use
+- [ ] A real fan of the creator would recognize the tone and priorities
+
+### Structural checks
+- [ ] Every file has at least 3 filled sections (not just headings)
+- [ ] No template placeholders remain (`<!-- ... -->`)
+- [ ] Sample interactions in `agents.md` sound like the real creator
+- [ ] Cross-file consistency: voice in `identity.md` matches tone in `agents.md`
+
+### Anti-generic checks
+- [ ] Remove any sentence that could apply to any creator
+- [ ] Replace vague adjectives ("passionate", "insightful") with specific behaviors
+- [ ] Ensure at least 3 signature phrases or speech patterns are documented
 
 ## Special cases
 
@@ -171,3 +218,16 @@ Capture the real style and worldview without endorsing it. Record sharp edges an
 
 ### Fictional or hybrid personas
 If the user is actually describing a fictional character or an IP persona rather than a real public creator, use the fictional-companion workflow instead.
+
+### Team or brand accounts
+If the input is a brand or team account (not a single person), extract the brand voice and collective identity. Note in `identity.md` that this is a collective voice, not an individual.
+
+### Deceased or inactive creators
+Use archived content. Mark the timeline explicitly in `memory.md` and note that no new content will be generated.
+
+## Validation
+
+After generating, run:
+```bash
+./scripts/validate.sh ./output/<agent-name>
+```

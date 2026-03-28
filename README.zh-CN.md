@@ -48,7 +48,7 @@
 ## 仓库结构
 
 ```text
-openclaw-skills-bundle-md/
+openclaw-personalized-agent-forge/
 ├── 01-digital-ip-agent/
 │   ├── SKILL.md
 │   └── references/
@@ -58,8 +58,66 @@ openclaw-skills-bundle-md/
 ├── 03-fictional-companion-forge/
 │   ├── SKILL.md
 │   └── references/
+├── templates/                  # Agent 包骨架模板
+│   ├── soul.md
+│   ├── identity.md
+│   ├── memory.md
+│   ├── agents.md
+│   ├── tools.md
+│   └── skills-recommendation.md
+├── scripts/                    # 生成与验证脚本
+│   ├── forge.sh                # 一键生成 Agent 包骨架
+│   ├── validate.sh             # 验证包完整性
+│   └── publish.sh              # 发布到 ClawHub
+├── output/                     # 生成的 Agent 包（已 gitignore）
 ├── README.md
 └── README.zh-CN.md
+```
+
+---
+
+## 脚本工具
+
+### `forge.sh` — 一键生成 Agent 包骨架
+
+```bash
+# 交互模式（会提示选择类型）
+./scripts/forge.sh "my-agent"
+
+# 指定类型
+./scripts/forge.sh "elon-musk" --type digital
+./scripts/forge.sh "senior-pm" --type professional
+./scripts/forge.sh "ghost-cod" --type fictional
+
+# 自定义输出目录和语言
+./scripts/forge.sh "my-agent" --type professional --output ./my-agents/pm --lang zh
+```
+
+自动生成目录和模板文件，可手动填写，也可用对应 skill 自动填充。
+
+### `validate.sh` — 验证包完整性
+
+```bash
+# 基本验证
+./scripts/validate.sh ./output/my-agent
+
+# 严格模式（warning 也算 error）
+./scripts/validate.sh ./output/my-agent --strict
+```
+
+检查项：必需文件存在、内容非空、模板占位符已填写、最低内容深度、META.yaml 字段。
+
+### `publish.sh` — 发布到 ClawHub
+
+```bash
+# 预览模式（只显示命令，不执行）
+./scripts/publish.sh
+
+# 发布指定 skill
+./scripts/publish.sh --skill 01
+
+# 正式发布
+./scripts/publish.sh --execute
 ```
 
 ---

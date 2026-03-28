@@ -48,7 +48,7 @@ Turn a fictional character into an emotionally believable OpenClaw companion age
 ## Repository Structure
 
 ```text
-openclaw-skills-bundle-md/
+openclaw-personalized-agent-forge/
 ├── 01-digital-ip-agent/
 │   ├── SKILL.md
 │   └── references/
@@ -58,8 +58,66 @@ openclaw-skills-bundle-md/
 ├── 03-fictional-companion-forge/
 │   ├── SKILL.md
 │   └── references/
+├── templates/                  # Skeleton templates for agent packages
+│   ├── soul.md
+│   ├── identity.md
+│   ├── memory.md
+│   ├── agents.md
+│   ├── tools.md
+│   └── skills-recommendation.md
+├── scripts/                    # Generation and validation scripts
+│   ├── forge.sh                # Scaffold a new agent package
+│   ├── validate.sh             # Validate package completeness
+│   └── publish.sh              # Publish skills to ClawHub
+├── output/                     # Generated agent packages (gitignored)
 ├── README.md
 └── README.zh-CN.md
+```
+
+---
+
+## Scripts
+
+### `forge.sh` — Scaffold a new agent package
+
+```bash
+# Interactive mode
+./scripts/forge.sh "my-agent"
+
+# With type specified
+./scripts/forge.sh "elon-musk" --type digital
+./scripts/forge.sh "senior-pm" --type professional
+./scripts/forge.sh "ghost-cod" --type fictional
+
+# With custom output directory and language
+./scripts/forge.sh "my-agent" --type professional --output ./my-agents/pm --lang zh
+```
+
+This creates a directory with all the template files pre-configured, ready to be filled in manually or via the corresponding skill.
+
+### `validate.sh` — Check package completeness
+
+```bash
+# Basic validation
+./scripts/validate.sh ./output/my-agent
+
+# Strict mode (warnings become errors)
+./scripts/validate.sh ./output/my-agent --strict
+```
+
+Checks: required files exist, content is non-empty, template placeholders are filled, minimum depth thresholds, META.yaml fields.
+
+### `publish.sh` — Publish to ClawHub
+
+```bash
+# Dry-run (preview commands)
+./scripts/publish.sh
+
+# Publish a specific skill
+./scripts/publish.sh --skill 01
+
+# Actually publish
+./scripts/publish.sh --execute
 ```
 
 ---

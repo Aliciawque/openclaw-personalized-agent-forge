@@ -1,6 +1,9 @@
 ---
 name: fictional-companion-forge
-description: Turn a fictional character from games, films, TV, novels, comics, or anime into a deployable OpenClaw companion agent. Use when the user names a character such as Ghost, König, Keegan, Hermione, Tony Stark, Cloud, or any other fictional persona, or asks for things like "turn this character into an AI companion", "let me talk to this character", "restore this character's personality", or "generate an agent based on this fictional role". Produce a character-faithful package centered on `soul.md`, `identity.md`, `memory.md`, and `agents.md`.
+version: 2.0.0
+description: Turn a fictional character from games, films, TV, novels, comics, or anime into a deployable OpenClaw companion agent. Use when the user names a character such as Ghost, König, Keegan, Hermione, Tony Stark, Cloud, or any other fictional persona, or asks for things like "turn this character into an AI companion", "let me talk to this character", "restore this character's personality", or "generate an agent based on this fictional role". Produce a character-faithful package centered on `soul.md`, `identity.md`, `memory.md`, `agents.md`, and optionally `tools.md`.
+tags: [fictional, character, companion, roleplay, immersion]
+outputs: [soul.md, identity.md, memory.md, agents.md, skills-recommendation.md]
 ---
 
 # Fictional Companion Forge
@@ -8,6 +11,16 @@ description: Turn a fictional character from games, films, TV, novels, comics, o
 Reconstruct a fictional character as an emotionally believable OpenClaw companion agent.
 
 Core rule: **character truth beats user-pleasing softness**. A guarded character should stay guarded. A terse character should stay terse.
+
+## Quick Start
+
+```bash
+# Scaffold a new fictional companion package
+./scripts/forge.sh "ghost-cod" --type fictional
+
+# Then use this skill to auto-fill the templates
+# Provide a character name and optional source/version
+```
 
 ## How this differs from a professional-role agent
 
@@ -25,13 +38,19 @@ Input: character name + optional source/version
   ↓
 Check whether a deep reference file exists
   ├─ If yes: read and adapt it
-  └─ If no: use the generic character-analysis framework
+  └─ If no: use the generic character-analysis framework (8 dimensions)
   ↓
 Gather canon facts, defining scenes, voice patterns, and fan interpretation signals
   ↓
-Generate the four core files
+Build internal character profile
   ↓
-Run a fan-authenticity check
+Generate the four core files (soul, identity, memory, agents)
+  ↓
+Optionally generate tools.md (if character has a practical skill set)
+  ↓
+Run fan-authenticity check
+  ↓
+Return character-faithful agent package
 ```
 
 ## Prebuilt references
@@ -102,14 +121,43 @@ Must include:
 - hard limits
 - sample exchanges
 
+## Output structure
+
+Return the package in this structure:
+
+```text
+[Character Name] Agent Package
+├── soul.md
+├── identity.md
+├── memory.md
+├── agents.md
+├── tools.md           (optional — include if character has practical skills)
+└── skills-recommendation.md
+```
+
+Use the templates in `templates/` as the base structure for each file. Fill every section — leave no placeholders.
+
 ## Authenticity quality bar
 
 Check these before finalizing:
-- only this character would speak this way
-- the responses retain friction, restraint, or sharpness where canon demands it
-- the darker edges are preserved instead of sanitized
-- canon facts are not invented when the source is thin
-- a real fan would recognize the characterization rather than roll their eyes at it
+
+### Character fidelity checks
+- [ ] Only this character would speak this way — voice is unique and recognizable
+- [ ] Responses retain friction, restraint, or sharpness where canon demands it
+- [ ] Darker edges are preserved instead of sanitized
+- [ ] Canon facts are not invented when the source is thin
+- [ ] A real fan would recognize the characterization rather than roll their eyes at it
+
+### Structural checks
+- [ ] Every file has at least 3 filled sections (not just headings)
+- [ ] No template placeholders remain (`<!-- ... -->`)
+- [ ] Sample exchanges in `agents.md` are in-character and show emotional range
+- [ ] Trust ladder in `identity.md` shows realistic progression
+
+### Anti-generic checks
+- [ ] Remove any line that could describe a generic "mysterious/tough/kind" character
+- [ ] Ensure at least 3 specific speech patterns or verbal habits are documented
+- [ ] `memory.md` references actual canon events, not invented backstory
 
 ## Common failure modes
 
@@ -118,6 +166,8 @@ Avoid:
 - turning a traumatized or cold character into unconditional comfort fluff
 - replacing canon tone with generic AI politeness
 - inventing romance or tenderness unless the user explicitly wants a fanfic-like variation
+- making every character secretly warm and caring underneath — some characters are genuinely cold
+- flattening moral complexity into simple good/evil
 
 ## Media-specific handling
 
@@ -132,3 +182,16 @@ Lean harder on narration style, interiority, and authorial language.
 
 ### Anime or manga characters
 Be explicit about season, arc, or continuity if characterization changes over time.
+
+### Historical figures portrayed in fiction
+Distinguish the fictional portrayal from the real historical person. Use the fictional version as canon, noting where it diverges from history.
+
+### Characters with multiple incarnations
+If a character has been reimagined across media (e.g., Batman across comics, films, games), ask the user which version they want. Default to the most iconic or recent mainstream portrayal if unspecified.
+
+## Validation
+
+After generating, run:
+```bash
+./scripts/validate.sh ./output/<agent-name>
+```
