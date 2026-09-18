@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-18",
+  "timezone": "America/Los_Angeles",
+  "scope": "github-trending:daily:all",
+  "complete": true,
+  "source_url": "https://github.com/trending",
+  "source_verified_for": "2026-09-18",
+  "repositories": [
+    {"repo": "cloudflare/security-audit-skill", "rank": 1, "stars_today": 3019, "stars_total": 12383},
+    {"repo": "anthropics/claude-code", "rank": 2, "stars_today": 442, "stars_total": 146112},
+    {"repo": "alibaba/open-code-review", "rank": 3, "stars_today": 2724, "stars_total": 36289},
+    {"repo": "affaan-m/ECC", "rank": 4, "stars_today": 965, "stars_total": 261660},
+    {"repo": "Tencent/BrowserSkill", "rank": 5, "stars_today": 1319, "stars_total": 4989},
+    {"repo": "addyosmani/agent-skills", "rank": 6, "stars_today": 677, "stars_total": 96192},
+    {"repo": "TencentCloud/Octop", "rank": 7, "stars_today": 571, "stars_total": 3823},
+    {"repo": "Fission-AI/OpenSpec", "rank": 8, "stars_today": 298, "stars_total": 69145},
+    {"repo": "ankitects/anki", "rank": 9, "stars_today": 430, "stars_total": 31104},
+    {"repo": "anthropics/knowledge-work-plugins", "rank": 10, "stars_today": 300, "stars_total": 24749},
+    {"repo": "supermemoryai/supermemory", "rank": 11, "stars_today": 140, "stars_total": 30093},
+    {"repo": "tradesdontlie/tradingview-mcp", "rank": 12, "stars_today": 64, "stars_total": 6370},
+    {"repo": "rustfs/rustfs", "rank": 13, "stars_today": 559, "stars_total": 33002},
+    {"repo": "supabase/supabase", "rank": 14, "stars_today": 128, "stars_total": 110006},
+    {"repo": "coder/coder", "rank": 15, "stars_today": 478, "stars_total": 15096},
+    {"repo": "ahmedkhaleel2004/gitdiagram", "rank": 16, "stars_today": 145, "stars_total": 16300},
+    {"repo": "asciimoo/hister", "rank": 17, "stars_today": 842, "stars_total": 4763}
+  ]
+}
