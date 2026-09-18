@@ -1,0 +1,69 @@
+name: Trend to PR checks
+
+on:
+  push:
+    branches: [main, feat/trend-to-pr-2026-09-18]
+    paths:
+      - '02-professional-agent-forge/examples/opensource-maintainer/trend-to-pr/**'
+      - '.github/workflows/trend-to-pr-ci.yml'
+  pull_request:
+    paths:
+      - '02-professional-agent-forge/examples/opensource-maintainer/trend-to-pr/**'
+      - '.github/workflows/trend-to-pr-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trend-to-pr-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash
+        working-directory: 02-professional-agent-forge/examples/opensource-maintainer/trend-to-pr
+    steps:
+      - name: Check out proposed revision without persisted credentials
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, resolved from the official tag
+        with:
+          persist-credentials: false
+      - name: Record runner and actual checked-out revision
+        run: |
+          python3 --version
+          git rev-parse HEAD
+      - name: Run all unit tests
+        run: python3 -m unittest -v
+      - name: Verify original source fingerprint
+        run: |
+          python3 - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          evidence = json.loads(Path('VERIFICATION.json').read_text(encoding='utf-8'))
+          actual = hashlib.sha256(Path('trend_to_pr.py').read_bytes() + Path('test_trend_to_pr.py').read_bytes()).hexdigest()
+          assert actual == evidence['source_fingerprint'], (actual, evidence['source_fingerprint'])
+          print('Source fingerprint verified:', actual)
+          PY
+      - name: Exercise CLI and repeat-safe snapshot ingestion
+        run: |
+          state="$RUNNER_TEMP/trend-to-pr-${{ github.run_id }}.sqlite3"
+          python3 trend_to_pr.py --state "$state" ingest examples/2026-09-18.json > "$RUNNER_TEMP/first.json"
+          python3 trend_to_pr.py --state "$state" ingest examples/2026-09-18.json > "$RUNNER_TEMP/retry.json"
+          python3 - <<'PY'
+          import json, os
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP'])
+          assert json.loads((root / 'first.json').read_text())['mode'] == 'baseline'
+          assert json.loads((root / 'retry.json').read_text())['mode'] == 'already_recorded'
+          print('Baseline and idempotent retry verified')
+          PY
+          set +e
+          python3 trend_to_pr.py gate examples/blocked-evidence.json
+          result=$?
+          set -e
+          test "$result" -eq 2
+          echo 'Blocked evidence correctly returns exit code 2'
