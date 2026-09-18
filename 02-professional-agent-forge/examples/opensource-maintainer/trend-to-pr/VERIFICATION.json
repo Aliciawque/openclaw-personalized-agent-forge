@@ -1,0 +1,19 @@
+{
+  "verified_date": "2026-09-18",
+  "environment": "3.13.5",
+  "platform": "Linux",
+  "command": "python -m unittest -v",
+  "exit_code": 0,
+  "tests": 32,
+  "source_fingerprint_definition": "sha256(trend_to_pr.py bytes + test_trend_to_pr.py bytes)",
+  "source_fingerprint": "f558d4c66dcec27560deb943f405620bd4d8cad7e6995966e70105e38f2ca50f",
+  "log_sha256": "c81b4f222b7d64c24725a4d1fee543dc53f105cafdc290e8c2ed09df2c779bca",
+  "not_verified": [
+    "other operating systems",
+    "GitHub Actions CI",
+    "scheduled execution",
+    "model identity",
+    "external API adapters",
+    "upstream projects tests"
+  ]
+}

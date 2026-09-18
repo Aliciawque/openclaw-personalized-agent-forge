@@ -1,0 +1,37 @@
+test_complete_evidence_passes (test_trend_to_pr.GateTests.test_complete_evidence_passes) ... ok
+test_empty_logs_blocks (test_trend_to_pr.GateTests.test_empty_logs_blocks) ... ok
+test_failing_unrun_or_boolean_exit_code_blocks (test_trend_to_pr.GateTests.test_failing_unrun_or_boolean_exit_code_blocks) ... ok
+test_human_requirement_blocks (test_trend_to_pr.GateTests.test_human_requirement_blocks) ... ok
+test_intent_key_stable_across_dates_and_case (test_trend_to_pr.GateTests.test_intent_key_stable_across_dates_and_case) ... ok
+test_missing_policies_fail_closed (test_trend_to_pr.GateTests.test_missing_policies_fail_closed) ... ok
+test_stale_revision_blocks (test_trend_to_pr.GateTests.test_stale_revision_blocks) ... ok
+test_string_true_does_not_pass (test_trend_to_pr.GateTests.test_string_true_does_not_pass) ... ok
+test_blocked_evidence_cannot_reserve (test_trend_to_pr.LedgerTests.test_blocked_evidence_cannot_reserve) ... ok
+test_cli_malformed_json_is_error (test_trend_to_pr.LedgerTests.test_cli_malformed_json_is_error) ... ok
+test_incomplete_ingest_does_not_poison_state (test_trend_to_pr.LedgerTests.test_incomplete_ingest_does_not_poison_state) ... ok
+test_older_snapshot_rejected (test_trend_to_pr.LedgerTests.test_older_snapshot_rejected) ... ok
+test_record_and_retry (test_trend_to_pr.LedgerTests.test_record_and_retry) ... ok
+test_record_requires_reservation_and_matching_repo (test_trend_to_pr.LedgerTests.test_record_requires_reservation_and_matching_repo) ... ok
+test_reservation_prevents_double_submission (test_trend_to_pr.LedgerTests.test_reservation_prevents_double_submission) ... ok
+test_same_day_changes_do_not_overwrite (test_trend_to_pr.LedgerTests.test_same_day_changes_do_not_overwrite) ... ok
+test_same_day_retry_is_idempotent (test_trend_to_pr.LedgerTests.test_same_day_retry_is_idempotent) ... ok
+test_sqlite_persists_across_sessions (test_trend_to_pr.LedgerTests.test_sqlite_persists_across_sessions) ... ok
+test_two_connections_do_not_reserve_twice (test_trend_to_pr.LedgerTests.test_two_connections_do_not_reserve_twice) ... ok
+test_baseline_not_new (test_trend_to_pr.SnapshotTests.test_baseline_not_new) ... ok
+test_duplicate_normalized_repo_fails (test_trend_to_pr.SnapshotTests.test_duplicate_normalized_repo_fails) ... ok
+test_empty_snapshot_fails (test_trend_to_pr.SnapshotTests.test_empty_snapshot_fails) ... ok
+test_first_seen_and_returning_differ (test_trend_to_pr.SnapshotTests.test_first_seen_and_returning_differ) ... ok
+test_future_history_and_timezone_mismatch_fail (test_trend_to_pr.SnapshotTests.test_future_history_and_timezone_mismatch_fail) ... ok
+test_gaps_are_not_called_daily_additions (test_trend_to_pr.SnapshotTests.test_gaps_are_not_called_daily_additions) ... ok
+test_incomplete_snapshot_fails (test_trend_to_pr.SnapshotTests.test_incomplete_snapshot_fails) ... ok
+test_invalid_date_and_timezone_fail (test_trend_to_pr.SnapshotTests.test_invalid_date_and_timezone_fail) ... ok
+test_invalid_metrics_rank_and_boolean_version_fail (test_trend_to_pr.SnapshotTests.test_invalid_metrics_rank_and_boolean_version_fail) ... ok
+test_normalizes_case (test_trend_to_pr.SnapshotTests.test_normalizes_case) ... ok
+test_rank_change (test_trend_to_pr.SnapshotTests.test_rank_change) ... ok
+test_rejects_urls_and_paths (test_trend_to_pr.SnapshotTests.test_rejects_urls_and_paths) ... ok
+test_stale_source_fails (test_trend_to_pr.SnapshotTests.test_stale_source_fails) ... ok
+
+----------------------------------------------------------------------
+Ran 32 tests in 0.849s
+
+OK
