@@ -32,6 +32,6 @@ test_rejects_urls_and_paths (test_trend_to_pr.SnapshotTests.test_rejects_urls_an
 test_stale_source_fails (test_trend_to_pr.SnapshotTests.test_stale_source_fails) ... ok
 
 ----------------------------------------------------------------------
-Ran 32 tests in 0.849s
+Ran 32 tests in 2.593s
 
 OK
