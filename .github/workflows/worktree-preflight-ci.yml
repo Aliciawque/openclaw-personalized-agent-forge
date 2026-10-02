@@ -1,0 +1,32 @@
+name: Worktree preflight
+
+on:
+  pull_request:
+    paths:
+      - '02-professional-agent-forge/examples/software-engineer/worktree-preflight/**'
+      - '.github/workflows/worktree-preflight-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: 02-professional-agent-forge/examples/software-engineer/worktree-preflight
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6, Node 24
+        with:
+          persist-credentials: false
+      - name: Record runtime
+        run: |
+          python3 --version
+          git --version
+      - name: Run isolated real-Git regression suite
+        env:
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: python3 -m unittest discover -s tests -v
+      - name: Check command-line help
+        run: python3 worktree_preflight.py --help
