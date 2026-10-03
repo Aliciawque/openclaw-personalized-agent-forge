@@ -1,0 +1,27 @@
+name: Agent package preflight
+on:
+  pull_request:
+    paths:
+      - '02-professional-agent-forge/examples/package-preflight/**'
+      - '.github/workflows/agent-package-preflight-ci.yml'
+  push:
+    paths:
+      - '02-professional-agent-forge/examples/package-preflight/**'
+      - '.github/workflows/agent-package-preflight-ci.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - name: Structural and adversarial tests
+        working-directory: 02-professional-agent-forge/examples/package-preflight
+        run: |
+          python3 --version
+          python3 -m unittest discover -s tests -v
+          python3 -m py_compile package_preflight.py
+          python3 package_preflight.py --help
