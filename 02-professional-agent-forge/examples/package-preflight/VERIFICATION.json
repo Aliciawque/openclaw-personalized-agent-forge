@@ -1,0 +1,27 @@
+{
+  "checked_at_utc": "2026-10-03T17:42:20Z",
+  "environment": {
+    "os": "Linux",
+    "python": "3.12.14"
+  },
+  "tests": {
+    "command": "python -m unittest discover -s tests -v",
+    "passed": 72,
+    "failed": 0,
+    "independent_adversarial_tests": 18
+  },
+  "source_sha256": {
+    "package_preflight.py": "f313263f0e07a6a6725e00abcb1ae3a07ee85d0357f6a2c2ae60b0a52ffcad7a",
+    "tests/test_preflight.py": "d75a90b3f4ce65a708ffe9ba93950012cf9f0e4077876b59202773342154a984",
+    "tests/test_adversarial_review.py": "95e9b2c661b5147bb051f81731384a9844319a829007585ff08f58bd1e78c363",
+    "README.md": "38ebc9b9cce943010886df95e2c7dab33b7f88880de33ae42c223b70a30aa1d3",
+    "LICENSE": "5596cc08699e66b6d0bf499e4407dab6a9f325aa10b648d96a32b170e5abb3de"
+  },
+  "limitations": [
+    "Partial Markdown subset",
+    "No native Windows/macOS tests",
+    "No OpenClaw deployment verification",
+    "Not a security boundary against malicious concurrent directory replacement"
+  ],
+  "ci": "Check the exact published commit GitHub Actions result separately"
+}
