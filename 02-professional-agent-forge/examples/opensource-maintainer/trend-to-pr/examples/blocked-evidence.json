@@ -1,0 +1,21 @@
+{
+  "repo": "alibaba/open-code-review",
+  "intent": "example-contribution",
+  "license_reviewed": true,
+  "contributing_reviewed": true,
+  "duplicate_checked": false,
+  "ai_policy_compatible": false,
+  "change_reviewed": false,
+  "privacy_checked": true,
+  "human_action_required": true,
+  "value_statement": "Example ONLY: not a real upstream proposal",
+  "scope": "Dry-run evidence example; no publication",
+  "source_revision": "not-implemented",
+  "tested_revision": null,
+  "tests_status": "not_run",
+  "tests_exit_code": null,
+  "tests_command": "",
+  "tests_log": "",
+  "policy_evidence": "CONTRIBUTING.md requires contributor personal review and responses, plus a CLA before merge.",
+  "duplicate_search_evidence": ""
+}
